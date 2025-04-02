@@ -15,26 +15,7 @@ This project is based on the [Iris Dataset](https://scikit-learn.org/1.4/auto_ex
 - Scikit-learn
 - Requests
 
-### Running Locally
-
-1. Clone the repository:
-   ```sh
-   git clone <repository-url>
-   cd <repository-folder>
-   ```
-2. Install dependencies:
-   ```sh
-   pip install -r requirements.txt
-   ```
-3. Start the FastAPI server:
-   ```sh
-   uvicorn app:app --host 0.0.0.0 --port 8888
-   ```
-4. Open API documentation in your browser:
-   - Swagger UI: [http://127.0.0.1:8888/docs](http://127.0.0.1:8888/docs)
-   - Redoc: [http://127.0.0.1:8888/redoc](http://127.0.0.1:8888/redoc)
-
-### Running with Docker
+### Running with Docker(Preferred method)
 
 1. Build the Docker image:
    ```sh
@@ -44,9 +25,32 @@ This project is based on the [Iris Dataset](https://scikit-learn.org/1.4/auto_ex
    ```sh
    docker run -p 8888:8888 app
    ```
-3. Edit the data in client.py and run client.py
-  ```sh 
-  python client.py
+3. Run User client using Streamlit
+  ```bash
+  streamlit run client.py 
+  ```
+
+### Running Locally
+
+1. Clone the repository:
+   ```sh
+   git clone <repository-url>
+   cd <repository-folder>
+   ```
+2. Install dependencies:
+   ```sh
+   docker build -t app_ml .
+   ```
+3. Start the FastAPI server:
+   ```sh
+   uvicorn app:app --host 0.0.0.0 --port 8888
+   ```
+4. Open API documentation in your browser:
+   - Swagger UI: [http://127.0.0.1:8888/docs](http://127.0.0.1:8888/docs)
+   - Redoc: [http://127.0.0.1:8888/redoc](http://127.0.0.1:8888/redoc)
+5. Run User client using Streamlit
+  ```bash
+  streamlit run client.py 
   ```
 
 ## API Endpoints

@@ -1,13 +1,24 @@
-import requests # type: ignore
-
+import streamlit as st 
+import requests 
 import json
 
-data = {"features": [5, 6, 7, 8]}
-
+# FastAPI endpoint URL
 url = "http://127.0.0.1:8888/predict/"
 
-data = json.dumps(data) 
+st.title("Iris Classification with FastAPI")
+st.write("Enter the feature values and get the predicted class.")
 
-response = requests.post(url, data=data, headers={"Content-Type": "application/json"})  # Ensure correct content type
+# User inputs
+sepal_length = st.number_input("Sepal Length", min_value=0.0, step=0.1, format="%.1f")
+sepal_width = st.number_input("Sepal Width", min_value=0.0, step=0.1, format="%.1f")
+petal_length = st.number_input("Petal Length", min_value=0.0, step=0.1, format="%.1f")
+petal_width = st.number_input("Petal Width", min_value=0.0, step=0.1, format="%.1f")
 
-print(response.json())
+if st.button("Predict"):
+    data = {"features": [sepal_length, sepal_width, petal_length, petal_width]}
+    response = requests.post(url, data=json.dumps(data), headers={"Content-Type": "application/json"})
+    
+    if response.status_code == 200:
+        st.success(f"Predicted class: {response.json()["message"]}")
+    else:
+        st.error("Error: Unable to get prediction. Check API server.")
