@@ -10,7 +10,6 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-
     # handle function
     return {"message": "ML model deployment"}
 

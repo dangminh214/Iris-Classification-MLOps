@@ -13,17 +13,15 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_
 model = RandomForestClassifier()
 model.fit(x_train, y_train)
 
+y_pred = model.predict(x_test)
 
+print("Accuracy: %.2f" % accuracy_score(y_test, y_pred))
 
-# y_pred = model.predict(x_test)
-
-# print("Accuracy: %.2f" % accuracy_score(y_test, y_pred))
-
-# with open("model.pkl", "wb") as f: 
-#     pickle.dump(model, f)
+with open("model.pkl", "wb") as f: 
+    pickle.dump(model, f)
 
 # sample data to test server
-data = {"feature": [1,2,3,4]}
+# data = {"feature": [1,2,3,4]}
 
-prediction = model.predict([data["feature"]])
-print(prediction)
+# prediction = model.predict([data["feature"]])
+# print(prediction)
