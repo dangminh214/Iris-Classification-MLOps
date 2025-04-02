@@ -44,6 +44,10 @@ This project is based on the [Iris Dataset](https://scikit-learn.org/1.4/auto_ex
    ```sh
    docker run -p 8888:8888 app
    ```
+3. Edit the data in client.py and run client.py
+  ```sh 
+  python client.py
+  ```
 
 ## API Endpoints
 
