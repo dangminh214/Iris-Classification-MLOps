@@ -11,7 +11,7 @@ app = FastAPI()
 @app.get("/")
 def read_root():
     # handle function
-    return {"message": "ML model deployment"}
+    return {"message": "Welcome to the Iris Classification API!"}
 
 @app.post("/predict")
 def predict(data: dict): 
