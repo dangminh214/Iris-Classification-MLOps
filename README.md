@@ -17,11 +17,11 @@ This project is based on the [Iris Dataset](https://scikit-learn.org/1.4/auto_ex
 
 ### Running with Docker(Preferred method)
 
-1. Build the Docker image:
+1. Build the Docker image
    ```sh
    docker build -t app .
    ```
-2. Run the container:
+2. Run the container to start the server
    ```sh
    docker run -p 8888:8888 app
    ```
