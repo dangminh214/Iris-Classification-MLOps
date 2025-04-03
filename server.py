@@ -15,7 +15,6 @@ def read_root():
 
 @app.post("/predict")
 def predict(data: dict): 
-
     prediction = model.predict([data["features"]])[0]
     predicted_class = class_names[prediction]
 
