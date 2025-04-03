@@ -3,7 +3,8 @@ import requests
 import json
 
 # FastAPI endpoint URL
-API_URL = "http://127.0.0.1:8888"
+# API_URL = "http://127.0.0.1:8888"
+API_URL = "https://iris-classification-mlops-production.up.railway.app"
 
 st.title("Iris Classification with FastAPI")
 st.write("Enter the feature values and get the predicted class.")

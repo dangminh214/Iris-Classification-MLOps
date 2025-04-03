@@ -79,6 +79,13 @@ This project is based on the [Iris Dataset](https://scikit-learn.org/1.4/auto_ex
   }
   ```
 
+### **Update**
+- Update 1 03.04.2025
+  Deploy model and server remotely 
+  ```bash
+  https://iris-classification-mlops-production.up.railway.app
+  ```
+
 ## Contributing
 Feel free to open issues or submit pull requests for improvements!
 
