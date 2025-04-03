@@ -17,11 +17,6 @@ y_pred = model.predict(x_test)
 
 print("Accuracy: %.2f" % accuracy_score(y_test, y_pred))
 
+# Export model as pkl file
 with open("model.pkl", "wb") as f: 
     pickle.dump(model, f)
-
-# sample data to test server
-# data = {"feature": [1,2,3,4]}
-
-# prediction = model.predict([data["feature"]])
-# print(prediction)
