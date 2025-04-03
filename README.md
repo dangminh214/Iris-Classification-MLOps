@@ -1,77 +1,103 @@
+
 # Iris Classification
 
-A simple MLOps project using Docker and FastAPI to deploy a machine learning model for predicting Iris species.
+A simple MLOps project demonstrating how to deploy a machine learning model for Iris species prediction using Docker and FastAPI.
+
+Live demo:  
+[**Iris Classification App**](https://iris-classification-dang-minh.streamlit.app/)
 
 ## Dataset
 
-This project is based on the [Iris Dataset](https://scikit-learn.org/1.4/auto_examples/datasets/plot_iris_dataset.html), a well-known dataset in machine learning.
+This project utilizes the [Iris Dataset](https://scikit-learn.org/1.4/auto_examples/datasets/plot_iris_dataset.html), a classic dataset in machine learning that contains 150 samples of Iris flowers, each characterized by four features: sepal length, sepal width, petal length, and petal width.
 
 ## Installation & Setup
 
 ### Prerequisites
-- Python 3.8+
-- Docker (optional for containerized deployment)
-- FastAPI
-- Scikit-learn
-- Requests
 
-### Running with Docker(Preferred method)
+Before setting up the project, make sure you have the following tools installed:
 
-1. Build the Docker image
-   ```sh
-   docker build -t app .
+- Python 3.8+  
+- Docker (Optional for containerized deployment)  
+- FastAPI  
+- Scikit-learn  
+- Requests  
+- Streamlit (for running the client-side application)
+
+### Running with Docker (Preferred Method)
+
+1. **Build the Docker image**  
+   Build the Docker image for the application.
+   ```bash
+   docker build -t iris-classification-app .
    ```
-2. Run the container to start the server
-   ```sh
-   docker run -p 8888:8888 app
+
+2. **Run the Docker container**  
+   Start the server inside a Docker container.
+   ```bash
+   docker run -p 8888:8888 iris-classification-app
    ```
-3. Run User client using Streamlit
-  ```bash
-  streamlit run client.py 
-  ```
 
-### Running Locally
+3. **Run the client-side application**  
+   Use Streamlit to run the client application.
+   ```bash
+   streamlit run client.py
+   ```
 
-1. Clone the repository:
-   ```sh
+### Running Locally (Without Docker)
+
+1. **Clone the repository**  
+   Clone the project repository to your local machine.
+   ```bash
    git clone <repository-url>
    cd <repository-folder>
    ```
-2. Install dependencies:
-   ```sh
-   docker build -t app_ml .
+
+2. **Install dependencies**  
+   Install the required Python dependencies.
+   ```bash
+   pip install -r requirements.txt
    ```
-3. Start the FastAPI server:
-   ```sh
+
+3. **Start the FastAPI server**  
+   Run the FastAPI server to serve the model.
+   ```bash
    uvicorn app:app --host 0.0.0.0 --port 8888
    ```
-4. Open API documentation in your browser:
+
+4. **Access API Documentation**  
+   Open the following API documentation in your browser:
    - Swagger UI: [http://127.0.0.1:8888/docs](http://127.0.0.1:8888/docs)
    - Redoc: [http://127.0.0.1:8888/redoc](http://127.0.0.1:8888/redoc)
-5. Run User client using Streamlit
-  ```bash
-  streamlit run client.py 
-  ```
+
+5. **Run the client-side application**  
+   Use Streamlit to run the client application.
+   ```bash
+   streamlit run client.py
+   ```
 
 ## API Endpoints
 
 ### **POST** `/predict`
-- Predicts the class of the given Iris flower sample.
+
+Predicts the Iris flower species based on the given feature values.
+
 - **Request Body (JSON):**
   ```json
   {
-    "features": [5, 6, 7, 8]
+    "features": [5.1, 3.5, 1.4, 0.2]
   }
   ```
 - **Response:**
   ```json
   {
-    "prediction": "Iris-Virginica"
+    "prediction": "Iris-setosa"
   }
   ```
 
 ### **GET** `/`
-- Provides information about the API.
+
+Provides a welcome message with information about the API.
+
 - **Response:**
   ```json
   {
@@ -79,15 +105,20 @@ This project is based on the [Iris Dataset](https://scikit-learn.org/1.4/auto_ex
   }
   ```
 
-### **Update**
-- Update 1 03.04.2025
-  Deploy model and server remotely 
-  ```bash
-  https://iris-classification-mlops-production.up.railway.app
-  ```
+## Deployment
+
+- **Remote Model & API Deployment**  
+  The FastAPI model and server have been deployed remotely on [Railway](https://railway.app):
+  [**Iris Classification API (Production)**](https://iris-classification-mlops-production.up.railway.app)
+
+- **Remote Streamlit Client Deployment**  
+  The client-side application is deployed using Streamlit:
+  [**Iris Classification Client**](https://iris-classification-dang-minh.streamlit.app/)
 
 ## Contributing
-Feel free to open issues or submit pull requests for improvements!
+
+Contributions are welcome! If you find any issues or want to suggest improvements, feel free to open an issue or submit a pull request.
 
 ## License
-This project is licensed under the MIT License.
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
