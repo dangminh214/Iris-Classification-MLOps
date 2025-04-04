@@ -2,3 +2,4 @@ scikit-learn
 fastapi 
 uvicorn
 streamlit
+plotly
