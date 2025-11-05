@@ -5,8 +5,8 @@ import pandas as pd
 import plotly.express as px
 
 # FastAPI endpoint URL
-# API_URL = "http://127.0.0.1:8888"
-API_URL = "https://iris-classification-mlops-production.up.railway.app"
+API_URL = "http://127.0.0.1:8888"
+# API_URL = "https://iris-classification-mlops-production.up.railway.app"
 
 # Page config
 st.set_page_config(
